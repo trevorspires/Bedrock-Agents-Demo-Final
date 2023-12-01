@@ -8,12 +8,12 @@ st.title("AnyCompany Support Agent :robot_face:")
 prompt = st.sidebar.text_area(label="What is your question?", max_chars=2000)
 
 event = {
-  "sessionId": "trevx",
+  "sessionId": "MYSESSION",
   "question": prompt
 }
 
 endevent = {
-  "sessionId": "trevx",
+  "sessionId": "MYSESSION",
   "question": "placeholder to end session",
   "endSession": True
 }
@@ -30,6 +30,8 @@ if endsessionprompt:
 
     
 ###Example Prompts
+#searchQuery(QUESTON HERE)
+#What do you know about flux3000 based on what's in your knowledge base?
 #what are some flux3000 features?
 #I enrich profiles with third-party data?
 #What does Guaranteed Connect do?
