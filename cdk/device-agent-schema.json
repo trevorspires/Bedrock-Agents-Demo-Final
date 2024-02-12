@@ -1,0 +1,106 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "FeatureRequestAgent-165 API",
+    "description": "An API for creating and updating feature requests",  
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/createFeatureRequest": {
+      "post": {
+        "summary": "Create a new feature request",
+        "description": "Creates a feature request with the featureRequestName, featureRequestDescription, customerName, and returns the feature request ID",
+        "parameters": [
+          {
+            "name": "featureRequestName",
+            "in": "query",
+            "description": "Name of the feature request",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "featureRequestDescription",
+            "in": "query",
+            "description": "Full length description of the feature requested",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "customerName",
+            "in": "query",
+            "description": "customer submitting the request",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Feature request created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "featureRequestID": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/updateFeatureRequest": {
+      "get": {
+        "summary": "Update an existing feature request",
+        "description": "Updates an existing featureRequest with the customerName and returns the featureRequestID",
+        "parameters": [
+          {
+            "name": "featureRequestID",
+            "in": "query",
+            "description": "ID of the feature request",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "customerName",
+            "in": "query",
+            "description": "Name of the customer",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        
+        "responses": {
+          "200": {
+            "description": "Feature request updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "featureRequestID": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
