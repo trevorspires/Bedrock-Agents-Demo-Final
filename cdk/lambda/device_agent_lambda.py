@@ -1,6 +1,7 @@
 import json
 import random
 import boto3
+import os
 
 #dynamo client
 dynamodb = boto3.client('dynamodb')
@@ -10,7 +11,7 @@ tableName = os.environ['TABLE_NAME']
 #sns client
 sns = boto3.client('sns')
 # get topic arn from environment variable
-topicarn = os.environ['TOPICARN']
+topicarn = os.environ['TOPIC_ARN']
 #topicarn = 'arn:aws:sns:us-west-2:161615149547:FeatureRequests'
 
 def get_named_parameter(event, name):
@@ -99,7 +100,10 @@ def lambda_handler(event, context):
     response_code = 200
     action_group = event['actionGroup']
     api_path = event['apiPath']
-    
+
+    print("DEBUG: Lambda event ", str(event))
+    print("DEBUG: Lambda context ", str(context))
+
     print ("lambda_handler == > api_path: ",api_path)
     
     if api_path == '/createFeatureRequest':
